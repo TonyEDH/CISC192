@@ -6,22 +6,10 @@ using namespace std;
 
 int main()
 {
-	int minVal;
-	int maxVal;
+	int minVal = 1;
+	int maxVal = 100;
 
-	cout << "Enter a minimum value: ";
-	cin >> minVal;
-	cout << "Enter a maximum value: ";
-	cin >> maxVal;
-
-	if (minVal > maxVal)
-	{
-		int temp = minVal;
-		minVal = maxVal;
-		maxVal = temp;
-	}
-
-	unsigned seed = time(0);
+	unsigned seed = time(0);//you may need to explicitly cast (ex. static_cast<unsigned>(time(0)))
 	srand(seed);
 	char c = ' ';
 
