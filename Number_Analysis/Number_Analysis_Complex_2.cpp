@@ -69,10 +69,12 @@ bool isFileValid(string inFileName)
 	inFile.open(inFileName);
 	if (inFile)
 	{
+		inFile.close();
 		return true;
 	}
 	else
 	{
+		inFile.close();
 		return false;
 	}
 }
