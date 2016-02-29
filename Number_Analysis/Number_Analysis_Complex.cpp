@@ -27,6 +27,7 @@ int main()
 		cout << "Please enter file path/name:";
 		cin >> fileName;
 
+		//Open file and count number of data to process
 		inFile.open(fileName);
 		if (inFile)
 		{
@@ -42,6 +43,7 @@ int main()
 			cout << "ERROR: Cannot open file:" << fileName << endl;
 		}
 
+		//create an array with size of data in file
 		array1 = new int[count];
 
 		//Open file and read file to store numbers into array
