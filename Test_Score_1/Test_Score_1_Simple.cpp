@@ -4,7 +4,7 @@
 
 using namespace std;
 
-//Function prototypesa
+//Function Prototypes
 int getNumScores();
 void getScores(int inArray[], int inCount);
 void sortArray(int inArray[], int inCount);
