@@ -4,47 +4,44 @@
 
 using namespace std;
 
-//Function prototypes
-void sortArray(int array[], int inCount);
-double avgArray(int array[], int inCount);
-void printArray(int array[], int inCount, string header);
+//Function prototypesa
+int getNumScores();
+void getScores(int inArray[], int inCount);
+void sortArray(int inArray[], int inCount);
+double avgArray(int inArray[], int inCount);
+void printArray(int inArray[], int inCount, string header);
 
 int main()
 {
+	//Game loop variable
 	char response;
 
 	do
 	{
+		//Variables
 		int *testScores;
 		int count;
 		double average;
 
-		//Create Array
-		cout << "Please enter the number of test scores to be entered: ";
-		cin >> count;
-
+		//Get number of scores
+		count = getNumScores();
+		//Create Array with num of scores 
 		testScores = new int[count];
-		//Fill Array
-		for (int i = 0; i < count; i++)
-		{
-			int score;
-			cout << "Test score " << (i + 1) << ": ";
-			cin >> score;
-
-			testScores[i] = score;
-		}
-		//Sort Array
+		//Fill Array with scores input from user
+		getScores(testScores, count);
+		//Sort Array in ascending order
 		sortArray(testScores, count);
-		//Average Array
+		//Average Array scores
 		average = avgArray(testScores, count);
 		//Print Sorted Array
 		cout << "====================";
 		printArray(testScores, count, "\nSorted Test Scores");
-		//Print Avg
+		//Print Average score
 		cout << fixed << showpoint << setprecision(2);
 		cout << "Average Score: " << average << endl;
 		cout << "====================";
 
+		//Ask to run again
 		cout << "\nWould you like to process another test(Y/N)? ";
 		cin >> response;
 	} while (toupper(response) != 'N');
@@ -52,10 +49,34 @@ int main()
 	return 0;
 }
 
-/*Sorting function*/
+/*Get number of test scores from user*/
+int getNumScores()
+{
+	int count;
+	cout << "Please enter the number of test scores to be entered: ";
+	cin >> count;
+	return count;
+}
+
+/*Get test scores from user*/
+void getScores(int inArray[], int inCount)
+{
+	int score;
+	for (int i = 0; i < inCount; i++)
+	{
+		do
+		{
+			cout << "Test score " << (i + 1) << ": ";
+			cin >> score;
+
+		} while (score < 0);
+		inArray[i] = score;
+	}
+}
+
+/*Sorting array of test scores in ascending order*/
 void sortArray(int inArray[], int inCount)
 {
-	//Find number of elements in the function
 	int startScan;
 	int minIndex;
 	int minVal;
