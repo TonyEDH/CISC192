@@ -11,9 +11,9 @@ FuelGuage::FuelGuage(int fuel)
 	this->fuel = fuel;
 }
 
-FuelGuage::FuelGuage(const FuelGuage* copy)
+FuelGuage::FuelGuage(const FuelGuage& copy)
 {
-	this->fuel = copy->fuel;
+	this->fuel = copy.fuel;
 }
 
 void FuelGuage::init()
@@ -34,9 +34,4 @@ void FuelGuage::addFuel()
 void FuelGuage::burnFuel() 
 {
 	fuel--;
-}
-
-FuelGuage::~FuelGuage()
-{
-	
 }

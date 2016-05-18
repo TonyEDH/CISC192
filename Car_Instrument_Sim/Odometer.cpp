@@ -8,7 +8,7 @@ Odometer::Odometer()
 Odometer::Odometer(FuelGuage* inFuel, int inMileage)
 {
 	init();
-	this->fuel = new FuelGuage(inFuel);
+	this->fuel = new FuelGuage(*inFuel);
 	this->mileage = inMileage;
 	this->milesSinceAddingFuel = 0;
 }
